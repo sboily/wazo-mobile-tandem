@@ -3,6 +3,9 @@
 # SPDX-License-Identifier: GPL-3.0+
 
 case "$1" in
+    build)
+        ;;
+
     package)
         cp -R etc ${pkgdir}/
         ;;
