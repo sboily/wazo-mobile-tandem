@@ -1,0 +1,8 @@
+name: mobile-tandem
+namespace: sboily
+version: 0.0.1
+author: Sylvain Boily
+display_name: Mobile Tandem
+tags:
+  - application
+homepage: https://github.com/sboily/wazo-mobile-tandem

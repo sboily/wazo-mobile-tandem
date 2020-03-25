@@ -1,0 +1,25 @@
+#!/bin/sh
+# Copyright 2020 Sylvain Boily
+# SPDX-License-Identifier: GPL-3.0+
+
+case "$1" in
+    package)
+        cp -R etc ${pkgdir}/
+        ;;
+
+    install)
+	chown asterisk.www-data /etc/asterisk/extensions_extra.d/wazo-mobile-tandem.conf
+	chmod 660 /etc/asterisk/extensions_extra.d/wazo-mobile-tandem.conf
+        /usr/sbin/asterisk -rx "dialplan reload"
+        ;;
+
+    uninstall)
+	rm -f /etc/asterisk/extensions_extra.d/wazo-mobile-tandem.conf
+        /usr/sbin/asterisk -rx "dialplan reload"
+        ;;
+
+    *)
+        echo "$0 called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac
